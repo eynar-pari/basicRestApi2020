@@ -1,4 +1,4 @@
-Feature: Example
+Feature: Example 1
 
   @ExampleTest
   Scenario: test
