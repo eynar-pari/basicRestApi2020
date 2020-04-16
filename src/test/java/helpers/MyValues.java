@@ -11,5 +11,7 @@ public class MyValues {
     public static final String SERVER_MAIN_URL = HOST  + REST_API;
 
     public static final String Authentication = "Authorization";
+
+    // Modificar el valor con la cuenta del todo.ly
     public static final String Authentication_value = "ZXluYXIucGFyaUBnbWFpbC5jb206Q29udHJvbDEyMyE=";
 }

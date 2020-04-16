@@ -7,7 +7,7 @@ Feature: Example 1
     When I send a POST request to projects.json end point with the json
     """
    {
-          "Content": "TEST",
+          "Content": "CUCUMBER2",
           "Icon": 1
    }
     """
