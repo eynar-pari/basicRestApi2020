@@ -1,6 +1,5 @@
 Feature: Projects
 
-
   # comentarios
 
   @Regression @SmokeTest

@@ -7,6 +7,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 
+import static helpers.MyValues.HOST;
+
 /**
  * Created by Eynar.
  */
@@ -16,11 +18,12 @@ class Runner {
     // HOOKS
     @Before()
     public void beforeScenario(Scenario scenario) {
-
+            System.out.println(".............BEFORE");
     }
 
 
     @After()
     public void afterScenario(Scenario scenario) {
+            System.out.println("................AFTER");
     }
 }
