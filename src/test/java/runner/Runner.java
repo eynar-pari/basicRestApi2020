@@ -2,23 +2,24 @@ package runner;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.Scenario;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.junit.Cucumber;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.runner.RunWith;
-
-import static helpers.MyValues.HOST;
 
 /**
  * Created by Eynar.
  */
 @RunWith(Cucumber.class)
-class Runner {
+@CucumberOptions(plugin = { "pretty","json:build/reports/cucumber/report.json"})
+public class Runner {
 
     // HOOKS
-    @Before()
+    @Before
     public void beforeScenario(Scenario scenario) {
-            System.out.println(".............BEFORE");
+        System.out.println(".............BEFORE"+scenario.getName());
+        System.out.println(".............BEFORE"+scenario.getSourceTagNames());
+
     }
 
 

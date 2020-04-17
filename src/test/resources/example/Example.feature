@@ -13,7 +13,6 @@ Feature: Example 1
     """
     Then the response code should be 200
     And I expected the CUCUMBER2 is displayed in json response
-
     And I save the attribute Id in the variable : ID_PROYECTO
 
     When I send a PUT request to projects/ID_PROYECTO.json end point with the json

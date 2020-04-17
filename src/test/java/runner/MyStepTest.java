@@ -6,6 +6,7 @@ import cucumber.api.java.en.When;
 import factoryRequest.CustomReponse;
 import factoryRequest.FactoryRequest;
 import helpers.JsonUtil;
+import org.json.JSONException;
 import org.junit.Assert;
 
 import java.util.HashMap;
@@ -55,5 +56,26 @@ public class MyStepTest {
     }
 
 
+    @And("^I expected a json response equal to$")
+    public void iExpectedAJsonResponseEqualTo(String expectedResult) throws JSONException {
+        expectedResult=this.replaceString(expectedResult);
+        String actualResult=globalResponse.getJsonBody();
+        Assert.assertTrue("ERROR los json comparados son distintos",JsonUtil.areEqualsJsonObject(expectedResult,actualResult));
+    }
+
+    @And("^I compare the value of (.*) is equal to$")
+    public void iCompareTheValueOfSTATUS_ITEMIsEqualTo(String key,String expectedResult) {
+       expectedResult= this.replaceString(expectedResult);
+       String actualResult=this.replaceString(key);
+       Assert.assertEquals("ERROR",expectedResult,actualResult);
+    }
+
+    @And("^I expected the (.*) is not displayed in json response$")
+    public void iExpectedTheCUCUMBERIsNotDisplayedInJsonResponse(String expectedValue) {
+        String actualResult= globalResponse.getJsonBody();
+        expectedValue= this.replaceString(expectedValue);
+        Assert.assertFalse("ERROR !! "+expectedValue+" is not in "+actualResult,actualResult.contains(expectedValue));
+
+    }
 }
 
