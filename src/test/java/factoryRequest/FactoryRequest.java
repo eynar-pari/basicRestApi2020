@@ -7,6 +7,8 @@ public class FactoryRequest {
     public static final String  GET="get";
     public static final String  POST="post";
     public static final String  DELETE="delete";
+    public static final String  DELETE_TOKEN="delete_token";
+    public static final String  GET_TOKEN="get_token";
 
     public static IRequest make (String typeRequest){
         IRequest request;
@@ -26,6 +28,12 @@ public class FactoryRequest {
                 break;
             case DELETE:
                 request= new Delete();
+                break;
+            case DELETE_TOKEN:
+                request= new DeleteToken();
+                break;
+            case GET_TOKEN:
+                request= new GetToken();
                 break;
             default:
                 request= new Get();

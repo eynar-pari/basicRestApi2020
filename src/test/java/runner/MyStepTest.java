@@ -6,20 +6,27 @@ import cucumber.api.java.en.When;
 import factoryRequest.CustomReponse;
 import factoryRequest.FactoryRequest;
 import helpers.JsonUtil;
+import jdk.nashorn.internal.parser.Token;
 import org.json.JSONException;
 import org.junit.Assert;
-
+import static helpers.MyValues.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MyStepTest {
 
     public static CustomReponse globalResponse;
-    public Map<String,String> globalVariables=new HashMap<>();
-
     @When("^I send a (POST|PUT|DELETE|GET) request to (.*) end point with the json$")
     public void iSendAPOSTRequestToProjectsJsonEndPointWithTheJson(String method, String path, String body) throws Throwable {
         globalResponse= FactoryRequest.make(method.toLowerCase()).send(this.replaceString(path),this.replaceString(body));
+    }
+
+    public Map<String,String> globalVariables=new HashMap<>();
+
+    @When("^I send a (DELETE|GET) request to (.*) end point with token$")
+    public void iSendAPOSTRequestToProjectsJsonEndPointWithTheJsonToken(String method, String path, String token) throws Throwable {
+        TokenValue=this.replaceString(token);
+        globalResponse= FactoryRequest.make(method.toLowerCase()+"_token").send(this.replaceString(path),"");
     }
 
     @Then("^the response code should be (\\d+)$")
@@ -76,6 +83,12 @@ public class MyStepTest {
         expectedValue= this.replaceString(expectedValue);
         Assert.assertFalse("ERROR !! "+expectedValue+" is not in "+actualResult,actualResult.contains(expectedValue));
 
+    }
+
+    public static void main (String [] args){
+        for (int i = 3844234; i <= 3845631; i++) {
+            FactoryRequest.make("delete").send("projects/"+i+".json","");
+        }
     }
 }
 

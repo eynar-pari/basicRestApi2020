@@ -70,7 +70,6 @@ Feature: Item
           "Id":"ID_ITEM",
           "Content": "Item UPDATE",
           "Deleted": true
-
     }
     """
 

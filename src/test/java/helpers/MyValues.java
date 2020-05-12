@@ -10,8 +10,8 @@ public class MyValues {
     public static final String REST_API = "/api/";
     public static final String SERVER_MAIN_URL = HOST  + REST_API;
 
-    public static final String Authentication = "Authorization";
-
+    public static  String Authentication = "Authorization";
+    public static  String TokenValue = "";
     // Modificar el valor con la cuenta del todo.ly
-    public static final String Authentication_value = "ZXluYXIucGFyaUBnbWFpbC5jb206Q29udHJvbDEyMyE=";
+    public static  String Authentication_value = "ZXluYXIucGFyaUBnbWFpbC5jb206Q29udHJvbDEyMyE=";
 }
